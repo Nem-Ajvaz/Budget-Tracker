@@ -7,8 +7,10 @@ const FILES_TO_CACHE = [
   "/icons/icon-512x512.png",
 ];
 
-const CACHE_NAME = "static-cache-v2";
-const DATA_CACHE_NAME = "data-cache-v1";
+const STATIC_CACHE = "static-cache-v1";
+const RUNTIME_CACHE = "runtime-cache";
+
+// Install
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -19,12 +21,15 @@ self.addEventListener("install", (event) => {
   );
 });
 
+//Handler to clean up old cache
+
 self.addEventListener("activate", (event) => {
-  const currentCaches = [PRECACHE, RUNTIME];
+  const currentCaches = [STATIC_CACHE, RUNTIME_CACHE];
   event.waitUntil(
     caches
       .keys()
       .then((cacheNames) => {
+        // return array of cache names that are old to delete
         return cacheNames.filter(
           (cacheName) => !currentCaches.includes(cacheName)
         );
