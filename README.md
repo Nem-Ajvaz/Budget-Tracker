@@ -41,6 +41,7 @@ THEN that will be shown on the page, and added to their transaction history when
 Clone my repo using the following command `https://github.com/Nem-Ajvaz/Budget-Tracker.git` to install the npm dependencies run `npm install`
 
 ## Demonstration
+![Demo](/assets/images/Budget.gif)
 
 ## Questions
 
